@@ -1,7 +1,8 @@
 # ------------------------
 # 1단계: 베이스 이미지 선택
 # ------------------------
-ARG BASE_IMAGE=nvidia/cuda:12.1.0-base-ubuntu20.04   # 기본값 = GPU
+# 기본값 = GPU
+ARG BASE_IMAGE=nvidia/cuda:12.1.0-base-ubuntu20.04
 FROM ${BASE_IMAGE} AS runtime
 
 ARG DEBIAN_FRONTEND=noninteractive
@@ -17,7 +18,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # ------------------------
 # 2단계: Python 라이브러리
 # ------------------------
-ARG DEVICE=gpu           # gpu | cpu
+# gpu | cpu
+ARG DEVICE=gpu
 RUN pip3 install --upgrade pip && \
     if [ "$DEVICE" = "gpu" ]; then \
         # GPU 휠 (CUDA 12.1) ──> 약 600 MB
