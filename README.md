@@ -23,3 +23,6 @@ docker compose build xclip-gpu
 
 CPU용 이미지 빌드:
 docker run -it --rm --gpus all -v ${PWD}:/app  xclip-cpu
+
+GPU용 이미지 빌드:
+docker run -it --rm --gpus all -v ${PWD}:/app  xclip-gpu
