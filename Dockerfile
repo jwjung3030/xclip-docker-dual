@@ -27,9 +27,9 @@ RUN pip3 install --upgrade pip && \
     else \
         # CPU 휠 ──> 약 200 MB, CUDA 라이브러리 미포함
         pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu ; \
-    fi && \
-    pip3 install \
-        transformers timm accelerate opencv-python decord einops
+    fi
+
+RUN pip3 install transformers timm accelerate opencv-python decord einops
 
 WORKDIR /app
 CMD ["/bin/bash"]
