@@ -20,8 +20,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # ------------------------
 # gpu | cpu
 ARG DEVICE=gpu
-RUN pip3 install --upgrade pip && \
-    if [ "$DEVICE" = "gpu" ]; then \
+RUN pip3 install --upgrade pip
+
+RUN if [ "$DEVICE" = "gpu" ]; then \
         # GPU 휠 (CUDA 12.1) ──> 약 600 MB
         pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121 ; \
     else \
